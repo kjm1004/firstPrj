@@ -1,4 +1,4 @@
-package part3.ex4.java63UI코드분리하기.copy;
+package part3.ex4.java63UI코드분리하기2;
 
 public class Exam {
 	int kor1;

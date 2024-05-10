@@ -2,7 +2,7 @@
  * 61강, Getter/Setter
  * */
 
-package part3.ex4.java63UI코드분리하기.copy;
+package part3.ex4.java63UI코드분리하기2;
 
 import java.util.Scanner;
 

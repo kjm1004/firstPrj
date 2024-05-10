@@ -1,4 +1,4 @@
-package part3.ex4.java63UI코드분리하기.copy;
+package part3.ex4.java63UI코드분리하기2;
 
 import java.util.Scanner;
 
@@ -108,18 +108,28 @@ public class ExamList{
 			
 	}
 	 
-	
+	/*
+	 기존 
+	 Exam[] exams = this.exams 
+	 temp[i] = exams[i];
+	 this.exams = temp;
+	 
+	 개선
+	 Exam[] exams = this.exams 
+	 temp[i] = exams[i];
+	 this.exams = temp;
+	*/
 	 
 	 
 	 public void add(Exam exam) {
-		Exam[] exams = this.exams;//배열 참조변수 생성 
+		Exam[] exams = this.exams;							// 기존 값 저장
 		int size = this.current;
 		
 		if (exams.length == size) {
-			Exam[] temp = new Exam[size + 5];
-			for (int i = 0; i < size; i++) 
-				temp[i] = exams[i];
-			this.exams = temp;	
+			Exam[] temp = new Exam[size + 1];				// 증가 배열 생성
+			for (int i = 0; i < size; i++) 					
+				temp[i] = exams[i];							// 임시값을 증가된 임시배열에 복사
+			this.exams = temp;								// 임시값을 
 		}
 		
 		this.exams[this.current] = exam;   
