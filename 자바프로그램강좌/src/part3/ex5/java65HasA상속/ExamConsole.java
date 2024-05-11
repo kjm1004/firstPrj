@@ -4,7 +4,17 @@ import java.util.Scanner;
 
 public class ExamConsole {
 
+	// Composition Has A : 일체형 ==> 객체화 될 때, 내부 객체들이 같이 만들어지는 관계
 	private ExamList list = new ExamList();
+	/*
+		 자바 원래 모습: 클래스 내부에서는 직접 연산자 사용금지
+		 public ExamConsole(){
+		 	list = new ExamList();
+		 }	
+		 
+		 public class ExamConsole이 객체화 될 때
+		 list 생성
+	 */
 
 	// 인스턴스형 함수
 	public void printList() {
