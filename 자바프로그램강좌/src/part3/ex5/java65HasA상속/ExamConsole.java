@@ -1,10 +1,9 @@
-package part3.ex4.java63UI코드분리하기;
+package part3.ex5.java65HasA상속;
 
 import java.util.Scanner;
 
 public class ExamConsole {
 
-	
 	private ExamList list = new ExamList();
 
 	// 인스턴스형 함수
@@ -19,8 +18,26 @@ public class ExamConsole {
 		System.out.println("성적 출력");
 		System.out.println();
 		
+		// int current => int size
+		// int size = list.current; -> current : 전체 수량
+		
+		// Exam[] exams = this.exams;
+		
+		// i < exams.length : 배열 갯수(학생수), 각 배열의 성적 갯수가 아님
 		for (int i = 0; i < size; i++) {
 			
+			// Exam exam = exams[i];
+			
+			// for 내에서 함수가 선언됨. 연산자가 아니므로 성능에 상관없음
+			// int kor = exam.kor;
+			// int eng = exam.eng;
+			// int math = exam.math;
+			// int total = kor + eng + math;
+			// float avg = total / 3.0f;
+			
+			// getter / setter
+			// Exam exam = exams[i];
+			// Exam exam = this.exams[i];
 			Exam exam = list.get(i);
 			int kor = exam.getKor();
 			int eng = exam.getEng();

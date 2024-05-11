@@ -2,7 +2,7 @@
  * 61강, Getter/Setter
  * */
 
-package part3.ex4.java63UI코드분리하기;
+package part3.ex5.java65HasA상속;
 
 import java.util.Scanner;
 
@@ -10,6 +10,21 @@ public class Program {
 
 	public static void main(String[] args) {
 
+//	각 성적별 배열객체 선언 방식 : Heap		
+//	int[] korlist = new int[3];		
+//	int[] englist = new int[3];
+//	int[] mathlist = new int[3];
+//	korlist[1] = 30;		객체 이므로 heap 메모리에 직접 저장 가능		
+	
+//	배열 참조 변수(exams) 선언: stack
+//	Exam[] exams = new Exam[3]; 	==> exams는 참조변수 이므로 값 저장 불가. 생성자()도 없음
+//	exams[0] = new Exam();  		==> 생성자를 통해 Heap 메모리 생성
+//	exams[1] = new Exam();
+//	exams[2] = new Exam();
+		
+		//list.init();
+		//ExamList.init(list);
+		//ExamList list = new ExamList();	// 학생단위 참조변수 생성(stack) ==> 학생들 배열
 		ExamConsole list = new ExamConsole();
 		
 		int menu;
