@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="자바프로그램강좌/src"/>
+	<classpathentry kind="lib" path="자바프로그램강좌/jar/Examlib.jar"/>
+	<classpathentry kind="output" path="자바프로그램강좌/bin"/>
+</classpath>
