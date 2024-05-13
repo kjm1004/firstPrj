@@ -1,4 +1,4 @@
-package part3.ex5.java78추상메소드구현body;
+package part3.ex4.java76추상화;
 
 public abstract class Exam {
 	int kor1;
@@ -36,13 +36,10 @@ public abstract class Exam {
 	public void setMath(int math) {
 		this.math1 = math;
 	}
-		
-	
-	public abstract int total();
-	public abstract float avg();
-	
-	// 자식메소드에게만 공개
-	protected int onTotal() {
+	public int total() {
 		return kor1 + eng1 + math1;
+	}
+	public float avg() {
+		return this.total()/3.0f;
 	}
 }

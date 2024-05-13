@@ -1,20 +1,10 @@
-package part3.ex5.java78추상메소드구현body;
+package part3.ex4.java76추상화;
 
 import java.util.Scanner;
 
-public abstract class ExamConsole {
+public class ExamConsole {
 
-	// Composition Has A : 일체형 ==> 객체화 될 때, 내부 객체들이 같이 만들어지는 관계
 	private ExamList list = new ExamList();
-	/*
-		 자바 원래 모습: 클래스 내부에서는 직접 연산자 사용금지
-		 public ExamConsole(){
-		 	list = new ExamList();
-		 }	
-		 
-		 public class ExamConsole이 객체화 될 때
-		 list 생성
-	 */
 
 	// 인스턴스형 함수
 	public void printList() {
@@ -103,22 +93,18 @@ public abstract class ExamConsole {
 				System.out.printf("현재번호 : %d\n", list.size());
 				System.out.println("-------------------");
 				
-				/*  기존  */
-				// Exam exam = new Exam(kor, eng, math);
+//				Exam exam = new Exam();		// 배열객체 생성 ==> 학생 1명의 국/영/수 성적
+//				exam.setKor(kor);
+//				exam.setEng(eng);
+//				exam.setMath(math);;
 				
-				/* Factory Method 객체 구현 시작*/
-				Exam exam = makeExam();
-				exam.setKor(kor);
-				exam.setEng(eng);
-				exam.setMath(math);
-				/* Factory Method 객체 구현 종료*/
-				
+				Exam exam = new Exam(kor, eng, math);
 				
 				/*  데이터 추가 */
 				list.add(exam);
+
 	}
 
-	/* Factory Method 선언 */
-	protected abstract Exam makeExam();
+
 
 }
