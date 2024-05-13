@@ -1,5 +1,7 @@
 package part3.ex4.java76추상화;
 
+import jdk.management.resource.internal.TotalResourceContext;
+
 public abstract class Exam {
 	int kor1;
 	int eng1;
@@ -36,10 +38,26 @@ public abstract class Exam {
 	public void setMath(int math) {
 		this.math1 = math;
 	}
+	
+	/*
 	public int total() {
 		return kor1 + eng1 + math1;
 	}
+	
 	public float avg() {
 		return this.total()/3.0f;
 	}
+	*/
+	
+	public abstract int total();
+	public abstract float avg();
+	
+	
+	protected int ontotal() {
+		return kor1 + eng1 + math1;
+	}
+
+	public abstract int getCom();
+	
+	
 }

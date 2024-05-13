@@ -2,42 +2,24 @@ package part3.ex4.java76추상화;
 
 import java.util.Scanner;
 
-public class ExamConsole {
+public abstract class ExamConsole {
 
 	private ExamList list = new ExamList();
 
 	// 인스턴스형 함수
-	public void printList() {
+	public void print() {
 		// printList(list, list.current);
-		this.printList(list.size());
+		this.print(list.size());
 	}
 	
 	
 	// 매개변수형 함수
-	public void printList(int size) {
+	public void print(int size) {
 		System.out.println("성적 출력");
 		System.out.println();
 		
-		// int current => int size
-		// int size = list.current; -> current : 전체 수량
-		
-		// Exam[] exams = this.exams;
-		
-		// i < exams.length : 배열 갯수(학생수), 각 배열의 성적 갯수가 아님
 		for (int i = 0; i < size; i++) {
 			
-			// Exam exam = exams[i];
-			
-			// for 내에서 함수가 선언됨. 연산자가 아니므로 성능에 상관없음
-			// int kor = exam.kor;
-			// int eng = exam.eng;
-			// int math = exam.math;
-			// int total = kor + eng + math;
-			// float avg = total / 3.0f;
-			
-			// getter / setter
-			// Exam exam = exams[i];
-			// Exam exam = this.exams[i];
 			Exam exam = list.get(i);
 			int kor = exam.getKor();
 			int eng = exam.getEng();
@@ -50,6 +32,8 @@ public class ExamConsole {
 			System.out.printf("영어 : %d \n", eng);
 			System.out.printf("수학 : %d \n", math);
 			
+			onPrint(exam);
+			
 			System.out.printf("총점  : %3d\n", total);
 			System.out.printf("평균 : %6.2f\n", avg);
 			System.out.println("-------------------");
@@ -58,8 +42,10 @@ public class ExamConsole {
 	}
 
 	
+
+
 	// 인스턴스형 함수
-	public void inputList() {
+	public void input() {
 
 		Scanner scan = new Scanner(System.in);
 		System.out.println("성적 입력");
@@ -90,6 +76,10 @@ public class ExamConsole {
 						System.out.println("수학성적은 0~100까지의 범위만 입력이 가능합니다.");
 				} while (math < 0 || 100 < math);
 				
+				
+
+				
+				
 				System.out.printf("현재번호 : %d\n", list.size());
 				System.out.println("-------------------");
 				
@@ -98,13 +88,27 @@ public class ExamConsole {
 //				exam.setEng(eng);
 //				exam.setMath(math);;
 				
-				Exam exam = new Exam(kor, eng, math);
+				/* 추상메소드로 선언했기 때문에 오류발생  */
+				//Exam exam = new Exam(kor, eng, math);
+				Exam exam = makeExam();
+				exam.setKor(kor);
+				exam.setEng(eng);
+				exam.setMath(math);
+				
+				onInput(exam);
 				
 				/*  데이터 추가 */
 				list.add(exam);
 
 	}
 
+	protected abstract void onInput(Exam exam);
 
+
+	protected abstract void onInput();
+
+	protected abstract void onPrint(Exam exam);
+
+	protected abstract Exam makeExam();
 
 }
